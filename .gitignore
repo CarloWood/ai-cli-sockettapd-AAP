@@ -1,2 +1,4 @@
 *.sock
 planner/tags
+current_objective
+ThreadID/
