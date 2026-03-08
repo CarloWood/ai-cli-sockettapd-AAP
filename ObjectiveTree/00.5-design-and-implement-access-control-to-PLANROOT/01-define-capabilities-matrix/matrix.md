@@ -1,5 +1,5 @@
 # Capabilities / constraints matrix
-Legend: **YES** (must be able to), **DC** (Don't Care), **NO** (should be impossible, or never attempted), **no** (should not be attempted directly: use `aap-*` instead.
+Legend: **YES** (must be able to), **DC** (Don't Care), **NO** (should be impossible, or never attempted), **no** (should not be attempted directly: use `aap-*` instead).
 
 ## Mutations in `$PLANROOT`
 
@@ -24,8 +24,8 @@ Legend: **YES** (must be able to), **DC** (Don't Care), **NO** (should be imposs
 
 ## Mounting / enforcement expectations
 
-| Item                          | Requirement                                                                                                                     |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Primary enforcement           | Prefer OS-enforced RO/RW (mount/remount) over “policy text”, because coder+planner run as the same uid (`carlo`).               |
-| “Read-only filesystem” errors | Treat as intentional. Agents NO attempt to bypass (no chmod/remount/debugging permissions unless the user explicitly requests). |
-| Running `remountctl`          | User only. Agents NO. `aap-*` scripts DC run remountctl (using extra access control using the environment.                      |
+| Item                          | Requirement                                                                                                                           |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Primary enforcement           | Prefer OS-enforced RO/RW (mount/remount) over “policy text”, because coder+planner run as the same uid (`carlo`).                     |
+| “Read-only filesystem” errors | Treat as intentional. Agents MUST NOT attempt to bypass (no chmod/remount/debugging permissions unless the user explicitly requests). |
+| Running `remountctl`          | User only. Agents NO. `aap-*` scripts MAY run remountctl (using extra access control using the environment).                          |
